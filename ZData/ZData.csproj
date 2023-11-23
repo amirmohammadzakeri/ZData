@@ -4,6 +4,12 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>Amirmohammad Zakeri</Authors>
+        <Description>Zero-allocating data structure.</Description>
+        <RepositoryUrl>https://github.com/amirmohammadzakeri/ZData</RepositoryUrl>
+        <PackageTags>streaming,</PackageTags>
+        <PackageId>ZeroData</PackageId>
+        <Title>ZData</Title>
     </PropertyGroup>
 
 
