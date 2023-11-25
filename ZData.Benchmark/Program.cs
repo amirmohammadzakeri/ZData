@@ -10,6 +10,14 @@ public class Program
     private static readonly int RecordNum = 1000;
     
     [Benchmark]
+    public void InlineArrayRecordBenchmark()
+    {
+        var rec = new InlineArray<object>();
+        rec[0] = 1;
+        rec[1] = "hello guys.";
+    }
+    
+    [Benchmark]
     public void ArrayRecordBenchmark()
     {
         var rec = new object[RecordLength];
@@ -37,6 +45,7 @@ public class Program
             recSpan[1].StringValue = "hello guys.";
         }
     }
+    
     [Benchmark]
     public void ArrayTableBenchmark()
     {
@@ -50,6 +59,18 @@ public class Program
         }
     }
 
+    [Benchmark]
+    public void InlineArrayTableBenchmark()
+    {
+        var tbl = new List<InlineArray<object>>(RecordNum);
+        for (int i = 0; i < RecordNum; i++)
+        {
+            var rec = new InlineArray<object>();
+            rec[0] = 1;
+            rec[1] = "hello guys.";
+            tbl.Add(rec);
+        }
+    }
     [Benchmark]
     public void DictionaryTableBenchmark()
     {
@@ -75,9 +96,6 @@ public class Program
             }
         }
     }
-    
-    
-    
     
     public static void Main( string[] args)
     {
